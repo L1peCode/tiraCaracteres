@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+
+    <h1 style="background: linear-gradient(150deg,  rgb(111, 86, 255) 20%,rgb(109, 245, 161) 90%)  "> Olá, Seja Bem Vindo.</h1>
+    <br></br>
+    <form>
+
+    <div class="chave">    
+<p>  <input type="text" id="telefone2" placeholder="Digite a chave:" maxlength="100" size="50px" />
+        <button onclick="copiarTelefone2()">Copiar</button>
+      </p>      
+    </div>
+   
+  <div class="mensagem1">
+  <br></br>
+  <textarea id="mensagem" rows="13" cols="70" maxlength="500" placeholder=" Digite aqui" ></textarea>
+  <button onclick="copiarmensagem()">Copiar</button>
+</div><br></br>
+</form>
+ <br></br>
+
+    <div class="fot">
+    <footer style="background: linear-gradient(250deg,  rgb(111, 86, 255) 20%,rgb(109, 245, 161) 90%)"><b> © Felipe Agostinho 2023 </b></footer>
+    </div>
+    
+    <script>
+      
+var telefone2 = document.getElementById('telefone2'),
+    limparEspacos;
+
+limparEspacos= function(e) {
+    e.preventDefault();
+    var pastedText = '';
+    if (window.clipboardData && window.clipboardData.getData) { 
+      } else if (e.clipboardData && e.clipboardData.getData) {
+        pastedText = e.clipboardData.getData('text/plain');
+      }
+    this.value = pastedText.replace(/\D/g, '');
+};
+
+telefone2.onpaste = limparEspacos;
+
+      function copiarTelefone2() {
+          let textoCopiado = document.getElementById("telefone2");
+          textoCopiado.select();
+          textoCopiado.setSelectionRange(0, 99999)
+          document.execCommand("copy");
+          alert("chave copiada: " + textoCopiado.value);
+          
+      }
+      
+      function copiarmensagem() {
+          let textoCopiado = document.getElementById("mensagem");
+          textoCopiado.select();
+          textoCopiado.setSelectionRange(0, 99999)
+          document.execCommand("copy");
+          alert("chave copiada: "+ textoCopiado.value);
+          
+      }
+    
+  </script>
+
+<style>
+* {
+            margin: 0px; 
+            padding: 0px; 
+            box-sizing: border-box;
+        }
+      
+        input {
+            background-color: #ece8e8a8;
+            color: #06224a;
+            width: 500px;
+        }
+        
+        input, button {
+            font-size: 15px;
+            border-radius: 10px;
+            padding: 10px;                
+        }
+
+        body {
+            margin: 200px;
+            position: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(150deg,  rgb(86, 201, 255) 20%,rgb(109, 245, 161) 90%);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+        }
+ 
+  .fot{
+    text-align: right;
+    line-height: 50px;
+  }
+
+  
+</style>
+
+
+  </body>
+
+</html>
